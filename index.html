@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="text-box" id="box">
+    <span>Heyyyyy Shubham!!! Thank you for coming in my life. May this year bring you good health, boundless happiness, and be abundantly blessed with love, success, and peace.
+      Your Krishna is always with you with his Radha. He will fulfill all your dreams😄. So, be ready for a year of achievements and new adventures that await you. Happy New Year!!🥳🎊😃❤️
+    </span>
+  </div>
+  <audio id="hoverSound">
+    <source src="./Radha-Bina-Krishna-Nahi.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      const textBox = document.getElementById('box');
+      const hoverSound = document.getElementById('hoverSound');
+
+      const startTime = 23;
+      const endTime = 90;
+      let stopAudioTimeout;
+
+      textBox.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = startTime;
+        hoverSound.play();
+
+        const duration = (endTime - startTime) * 1000;
+        stopAudioTimeout = setTimeout(() => {
+          hoverSound.pause();
+          hoverSound.currentTime = startTime;
+        }, duration);
+      });
+
+      textBox.addEventListener('mouseleave', () => {
+        clearTimeout(stopAudioTimeout);
+        hoverSound.pause();
+      });
+    });
+  </script>
+</body>
+
+</html>
